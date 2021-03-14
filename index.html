@@ -36,6 +36,11 @@
     const coordinates = data.data
       .map((country) => {
         if (!country.coordinates.latitude) return;
+        console.log(country);
+        L.marker(
+          [country.coordinates.latitude, country.coordinates.longitude],
+          { title: country.name }
+        ).addTo(mymap);
         return [
           country.coordinates.latitude,
           country.coordinates.longitude,
